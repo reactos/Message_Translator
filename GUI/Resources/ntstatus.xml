@@ -872,6 +872,7 @@
 	<Ntstatus text="STATUS_DRIVER_DATABASE_ERROR" value="C000036D"></Ntstatus>
 	<Ntstatus text="STATUS_SYSTEM_HIVE_TOO_LARGE" value="C000036E"></Ntstatus>
 	<Ntstatus text="STATUS_INVALID_IMPORT_OF_NON_DLL" value="C000036F"></Ntstatus>
+	<Ntstatus text="STATUS_HEAP_CORRUPTION" value="C0000374"></Ntstatus>	
 	<Ntstatus text="STATUS_DS_SHUTTING_DOWN" value="40000370"></Ntstatus>
 	<Ntstatus text="STATUS_SMARTCARD_WRONG_PIN" value="C0000380"></Ntstatus>
 	<Ntstatus text="STATUS_SMARTCARD_CARD_BLOCKED" value="C0000381"></Ntstatus>
@@ -888,6 +889,7 @@
 	<Ntstatus text="STATUS_PKINIT_CLIENT_FAILURE" value="C000038C"></Ntstatus>
 	<Ntstatus text="STATUS_SMARTCARD_CERT_EXPIRED" value="C000038D"></Ntstatus>
 	<Ntstatus text="STATUS_DRIVER_FAILED_PRIOR_UNLOAD" value="C000038E"></Ntstatus>
+	<Ntstatus text="STATUS_ELEVATION_REQUIRED" value="C000042C"></Ntstatus>
 	<Ntstatus text="STATUS_WOW_ASSERTION" value="C0009898"></Ntstatus>
 	<Ntstatus text="RPC_NT_INVALID_STRING_BINDING" value="C0020001"></Ntstatus>
 	<Ntstatus text="RPC_NT_WRONG_KIND_OF_BINDING" value="C0020002"></Ntstatus>
@@ -1108,4 +1110,5 @@
 	<Ntstatus text="STATUS_CLUSTER_NO_SECURITY_CONTEXT" value="C0130015"></Ntstatus>
 	<Ntstatus text="STATUS_CLUSTER_NETWORK_NOT_INTERNAL" value="C0130016"></Ntstatus>
 	<Ntstatus text="STATUS_CLUSTER_POISONED" value="C0130017"></Ntstatus>
+	<Ntstatus text="STATUS_FLT_NO_DEVICE_OBJECT" value="C01C0019"></Ntstatus>
 </NtstatusList>

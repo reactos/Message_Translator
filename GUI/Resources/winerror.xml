@@ -199,6 +199,8 @@
 	<Winerror text="ERROR_ARITHMETIC_OVERFLOW" value="534" />
 	<Winerror text="ERROR_PIPE_CONNECTED" value="535" />
 	<Winerror text="ERROR_PIPE_LISTENING" value="536" />
+	<Winerror text="ERROR_ELEVATION_REQUIRED" value="740" />
+	<Winerror text="ERROR_INVALID_IMAGE_HASH" value="577" />
 	<Winerror text="ERROR_EA_ACCESS_DENIED" value="994" />
 	<Winerror text="ERROR_OPERATION_ABORTED" value="995" />
 	<Winerror text="ERROR_IO_INCOMPLETE" value="996" />
@@ -570,6 +572,7 @@
 	<Winerror text="ERROR_REQUIRES_INTERACTIVE_WINDOWSTATION" value="1459" />
 	<Winerror text="ERROR_TIMEOUT" value="1460" />
 	<Winerror text="ERROR_INVALID_MONITOR_HANDLE" value="1461" />
+	<Winerror text="ERROR_XML_PARSE_ERROR" value="1465" />
 	<Winerror text="ERROR_EVENTLOG_FILE_CORRUPT" value="1500" />
 	<Winerror text="ERROR_EVENTLOG_CANT_START" value="1501" />
 	<Winerror text="ERROR_LOG_FILE_FULL" value="1502" />

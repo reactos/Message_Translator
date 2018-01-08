@@ -1085,4 +1085,33 @@
 	<Hresult text="COMADMIN_E_PARTITIONS_DISABLED" value="80110824" />
 	<Hresult text="ERROR_AUDITING_DISABLED" value="C0090001" />
 	<Hresult text="ERROR_ALL_SIDS_FILTERED" value="C0090002" />
+	
+	<Hresult text="ERROR_FLT_IO_COMPLETE" value="001F0001" />
+	<Hresult text="ERROR_FLT_NO_HANDLER_DEFINED" value="801F0001" />
+	<Hresult text="ERROR_FLT_CONTEXT_ALREADY_DEFINED" value="801F0002" />
+	<Hresult text="ERROR_FLT_INVALID_ASYNCHRONOUS_REQUEST" value="801F0003" />
+	<Hresult text="ERROR_FLT_DISALLOW_FAST_IO" value="801F0004" />
+	<Hresult text="ERROR_FLT_INVALID_NAME_REQUEST" value="801F0005" />
+	<Hresult text="ERROR_FLT_NOT_SAFE_TO_POST_OPERATION" value="801F0006" />
+	<Hresult text="ERROR_FLT_NOT_INITIALIZED" value="801F0007" />
+	<Hresult text="ERROR_FLT_FILTER_NOT_READY" value="801F0008" />
+	<Hresult text="ERROR_FLT_POST_OPERATION_CLEANUP" value="801F0009" />
+	<Hresult text="ERROR_FLT_INTERNAL_ERROR" value="801F000A" />
+	<Hresult text="ERROR_FLT_DELETING_OBJECT" value="801F000B" />
+	<Hresult text="ERROR_FLT_MUST_BE_NONPAGED_POOL" value="801F000C" />
+	<Hresult text="ERROR_FLT_DUPLICATE_ENTRY" value="801F000D" />
+	<Hresult text="ERROR_FLT_CBDQ_DISABLED" value="801F000E" />
+	<Hresult text="ERROR_FLT_DO_NOT_ATTACH" value="801F000F" />
+	<Hresult text="ERROR_FLT_INSTANCE_ALTITUDE_COLLISION" value="801F0011" />
+	<Hresult text="ERROR_FLT_INSTANCE_NAME_COLLISION" value="801F0012" />
+	<Hresult text="ERROR_FLT_FILTER_NOT_FOUND" value="801F0013" />
+	<Hresult text="ERROR_FLT_VOLUME_NOT_FOUND" value="801F0014" />
+	<Hresult text="ERROR_FLT_INSTANCE_NOT_FOUND" value="801F0015" />
+	<Hresult text="ERROR_FLT_CONTEXT_ALLOCATION_NOT_FOUND" value="801F0016" />
+	<Hresult text="ERROR_FLT_INVALID_CONTEXT_REGISTRATION" value="801F0017" />
+	<Hresult text="ERROR_FLT_NAME_CACHE_MISS" value="801F0018" />
+	<Hresult text="ERROR_FLT_NO_DEVICE_OBJECT" value="801F0019" />
+	<Hresult text="ERROR_FLT_VOLUME_ALREADY_MOUNTED" value="801F001A" />
+	<Hresult text="ERROR_FLT_NO_WAITER_FOR_REPLY" value="801F0020" />
+
 </HresultList>
