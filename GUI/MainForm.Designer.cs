@@ -54,6 +54,16 @@ namespace MsgTranslator
             this.wndmsgCodeLabel = new System.Windows.Forms.Label();
             this.wndmsgNumberLabel = new System.Windows.Forms.Label();
             this.bugurlTab = new System.Windows.Forms.TabPage();
+            this.JiraDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.JiraAssigneeTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.JiraReporterTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.JiraResolutionTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.JiraStatusTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.bugLinkLabel = new System.Windows.Forms.LinkLabel();
             this.optionsTab = new System.Windows.Forms.TabPage();
             this.optionsRunStartChkBox = new System.Windows.Forms.CheckBox();
@@ -62,6 +72,7 @@ namespace MsgTranslator
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.JiraSummaryLink = new System.Windows.Forms.LinkLabel();
             this.mainTabControl.SuspendLayout();
             this.errorMsgTab.SuspendLayout();
             this.wndmsgTab.SuspendLayout();
@@ -296,24 +307,122 @@ namespace MsgTranslator
             // 
             // bugurlTab
             // 
+            this.bugurlTab.Controls.Add(this.JiraSummaryLink);
+            this.bugurlTab.Controls.Add(this.JiraDescriptionTextBox);
+            this.bugurlTab.Controls.Add(this.label6);
+            this.bugurlTab.Controls.Add(this.JiraAssigneeTextBox);
+            this.bugurlTab.Controls.Add(this.label7);
+            this.bugurlTab.Controls.Add(this.JiraReporterTextBox);
+            this.bugurlTab.Controls.Add(this.label5);
+            this.bugurlTab.Controls.Add(this.JiraResolutionTextBox);
+            this.bugurlTab.Controls.Add(this.label4);
+            this.bugurlTab.Controls.Add(this.JiraStatusTextBox);
+            this.bugurlTab.Controls.Add(this.label3);
             this.bugurlTab.Controls.Add(this.bugLinkLabel);
             this.bugurlTab.Location = new System.Drawing.Point(4, 22);
             this.bugurlTab.Name = "bugurlTab";
             this.bugurlTab.Size = new System.Drawing.Size(292, 185);
             this.bugurlTab.TabIndex = 3;
-            this.bugurlTab.Text = "Bug Url";
+            this.bugurlTab.Text = "JIRA";
             this.bugurlTab.UseVisualStyleBackColor = true;
+            // 
+            // JiraDescriptionTextBox
+            // 
+            this.JiraDescriptionTextBox.Location = new System.Drawing.Point(7, 95);
+            this.JiraDescriptionTextBox.Multiline = true;
+            this.JiraDescriptionTextBox.Name = "JiraDescriptionTextBox";
+            this.JiraDescriptionTextBox.ReadOnly = true;
+            this.JiraDescriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.JiraDescriptionTextBox.Size = new System.Drawing.Size(275, 74);
+            this.JiraDescriptionTextBox.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(147, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Assignee:";
+            // 
+            // JiraAssigneeTextBox
+            // 
+            this.JiraAssigneeTextBox.Location = new System.Drawing.Point(200, 43);
+            this.JiraAssigneeTextBox.Name = "JiraAssigneeTextBox";
+            this.JiraAssigneeTextBox.ReadOnly = true;
+            this.JiraAssigneeTextBox.Size = new System.Drawing.Size(82, 20);
+            this.JiraAssigneeTextBox.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Reporter:";
+            // 
+            // JiraReporterTextBox
+            // 
+            this.JiraReporterTextBox.Location = new System.Drawing.Point(58, 43);
+            this.JiraReporterTextBox.Name = "JiraReporterTextBox";
+            this.JiraReporterTextBox.ReadOnly = true;
+            this.JiraReporterTextBox.Size = new System.Drawing.Size(86, 20);
+            this.JiraReporterTextBox.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(-3, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Resolution:";
+            // 
+            // JiraResolutionTextBox
+            // 
+            this.JiraResolutionTextBox.Location = new System.Drawing.Point(58, 69);
+            this.JiraResolutionTextBox.Name = "JiraResolutionTextBox";
+            this.JiraResolutionTextBox.ReadOnly = true;
+            this.JiraResolutionTextBox.Size = new System.Drawing.Size(86, 20);
+            this.JiraResolutionTextBox.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(154, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Status:";
+            // 
+            // JiraStatusTextBox
+            // 
+            this.JiraStatusTextBox.Location = new System.Drawing.Point(200, 69);
+            this.JiraStatusTextBox.Name = "JiraStatusTextBox";
+            this.JiraStatusTextBox.ReadOnly = true;
+            this.JiraStatusTextBox.Size = new System.Drawing.Size(82, 20);
+            this.JiraStatusTextBox.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(2, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Summary:";
             // 
             // bugLinkLabel
             // 
             this.bugLinkLabel.AutoSize = true;
-            this.bugLinkLabel.Location = new System.Drawing.Point(60, 87);
+            this.bugLinkLabel.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.bugLinkLabel.Location = new System.Drawing.Point(160, 172);
             this.bugLinkLabel.Name = "bugLinkLabel";
-            this.bugLinkLabel.Size = new System.Drawing.Size(145, 13);
+            this.bugLinkLabel.Size = new System.Drawing.Size(132, 13);
             this.bugLinkLabel.TabIndex = 3;
             this.bugLinkLabel.TabStop = true;
-            this.bugLinkLabel.Text = "ReactOS Bugzilla Homepage";
-            this.bugLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bugLinkLabel.Text = "ReactOS JIRA Homepage";
             this.bugLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.bugLinkLabel_LinkClicked);
             // 
             // optionsTab
@@ -377,6 +486,15 @@ namespace MsgTranslator
             this.toolTip.AutoPopDelay = 5000;
             this.toolTip.InitialDelay = 500;
             this.toolTip.ReshowDelay = 100;
+            // 
+            // JiraSummaryLink
+            // 
+            this.JiraSummaryLink.AutoSize = true;
+            this.JiraSummaryLink.Location = new System.Drawing.Point(55, 14);
+            this.JiraSummaryLink.Name = "JiraSummaryLink";
+            this.JiraSummaryLink.Size = new System.Drawing.Size(0, 13);
+            this.JiraSummaryLink.TabIndex = 18;
+            this.JiraSummaryLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.JiraSummaryLink_LinkClicked);
             // 
             // MainForm
             // 
@@ -442,6 +560,17 @@ namespace MsgTranslator
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox wndmsgHexTxtBox;
         private System.Windows.Forms.TextBox wndmsgDecimalTxtBox;
+        private System.Windows.Forms.TextBox JiraDescriptionTextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox JiraAssigneeTextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox JiraReporterTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox JiraResolutionTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox JiraStatusTextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.LinkLabel JiraSummaryLink;
     }
 }
 

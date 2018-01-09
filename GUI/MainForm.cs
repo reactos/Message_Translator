@@ -78,7 +78,7 @@ namespace MsgTranslator
             get
             {
                 string optionName = "NtstatusXml";
-                string s = ConfigurationSettings.AppSettings[optionName];
+                string s = ConfigurationManager.AppSettings[optionName];
                 VerifyRequiredOption(optionName,
                                      s);
                 s = PrependWorkingDirectory(s);
@@ -90,7 +90,7 @@ namespace MsgTranslator
             get
             {
                 string optionName = "WinerrorXml";
-                string s = ConfigurationSettings.AppSettings[optionName];
+                string s = ConfigurationManager.AppSettings[optionName];
                 VerifyRequiredOption(optionName,
                                      s);
                 s = PrependWorkingDirectory(s);
@@ -102,7 +102,7 @@ namespace MsgTranslator
             get
             {
                 string optionName = "HresultXml";
-                string s = ConfigurationSettings.AppSettings[optionName];
+                string s = ConfigurationManager.AppSettings[optionName];
                 VerifyRequiredOption(optionName,
                                      s);
                 s = PrependWorkingDirectory(s);
@@ -114,7 +114,7 @@ namespace MsgTranslator
             get
             {
                 string optionName = "WmXml";
-                string s = ConfigurationSettings.AppSettings[optionName];
+                string s = ConfigurationManager.AppSettings[optionName];
                 VerifyRequiredOption(optionName,
                                      s);
                 s = PrependWorkingDirectory(s);
@@ -126,7 +126,7 @@ namespace MsgTranslator
             get
             {
                 string optionName = "BugcheckXml";
-                string s = ConfigurationSettings.AppSettings[optionName];
+                string s = ConfigurationManager.AppSettings[optionName];
                 VerifyRequiredOption(optionName,
                                      s);
                 s = PrependWorkingDirectory(s);
@@ -138,7 +138,7 @@ namespace MsgTranslator
             get
             {
                 string optionName = "BugUrl";
-                string s = ConfigurationSettings.AppSettings[optionName];
+                string s = ConfigurationManager.AppSettings[optionName];
                 VerifyRequiredOption(optionName,
                                      s);
                 return s;
@@ -149,7 +149,18 @@ namespace MsgTranslator
             get
             {
                 string optionName = "BugHomepage";
-                string s = ConfigurationSettings.AppSettings[optionName];
+                string s = ConfigurationManager.AppSettings[optionName];
+                VerifyRequiredOption(optionName,
+                                     s);
+                return s;
+            }
+        }
+        private static string Branding
+        {
+            get
+            {
+                string optionName = "Branding";
+                string s = ConfigurationManager.AppSettings[optionName];
                 VerifyRequiredOption(optionName,
                                      s);
                 return s;
@@ -193,13 +204,6 @@ namespace MsgTranslator
             {
                 return null;
             }
-        }
-
-        private void SetBugurlPosition()
-        {
-            int hCenter = (mainTabControl.Height / 2) - (bugLinkLabel.Height / 2);
-            int wCenter = (mainTabControl.Width / 2) - (bugLinkLabel.Width / 2);
-            bugLinkLabel.Location = new System.Drawing.Point(wCenter, hCenter);
         }
 
         private void UpdateErrorPage(int pageNum)
@@ -275,11 +279,17 @@ namespace MsgTranslator
                         }
                         else if (cmd.MsgType == MessageType.BugUrl)
                         {
-                            bugLinkLabel.Text = "Click here for bug " + cmd.Number;
-                            bugLinkLabel.Links[0].LinkData = cmd.Code;
-                            bugLinkLabel.Links[0].Visited = false;
+                            BugCommand bugCmd = (BugCommand)cmd;
+                            JiraSummaryLink.Text = bugCmd.Summary;
+                            JiraSummaryLink.Links[0].LinkData = bugCmd.BugUrl;
+                            JiraSummaryLink.Links[0].Visited = false;
 
-                            SetBugurlPosition();
+                            JiraReporterTextBox.Text = bugCmd.Reporter;
+                            JiraAssigneeTextBox.Text = bugCmd.Assignee;
+                            JiraStatusTextBox.Text = bugCmd.Status;
+                            JiraResolutionTextBox.Text = string.IsNullOrEmpty(bugCmd.Resolution) ?
+                                "Unresolved" : bugCmd.Resolution;
+                            JiraDescriptionTextBox.Text = bugCmd.Description;
                         }
                     }
                 }
@@ -289,6 +299,11 @@ namespace MsgTranslator
         public MainForm()
         {
             InitializeComponent();
+
+            if (Branding != "ReactOS")
+            {
+                mainTabControl.TabPages.Remove(this.bugurlTab);
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -300,22 +315,27 @@ namespace MsgTranslator
 
             // setup bug page
             bugLinkLabel.Links[0].LinkData = BugHomepage;
-            SetBugurlPosition();
 
             // setup options page
             optionsMinimizeChkBox.Checked = HideOnMin;
             optionsRunStartChkBox.Checked = RunOnStart;
 
-
-          //toolTip.SetToolTip(mainErrTxtBox, Properties.Resources.tooltipErrMsg);
-          //toolTip.SetToolTip(mainWndMsgRadio, Properties.Resources.tooltipWndMsg);
-          //toolTip.SetToolTip(mainBugMsgRadio, Properties.Resources.tooltipBug);
-          //toolTip.SetToolTip(mainOptionsRadio, Properties.Resources.tooltipOpt);
+            //toolTip.SetToolTip(mainErrTxtBox, Properties.Resources.tooltipErrMsg);
+            //toolTip.SetToolTip(mainWndMsgRadio, Properties.Resources.tooltipWndMsg);
+            //toolTip.SetToolTip(mainBugMsgRadio, Properties.Resources.tooltipBug);
+            //toolTip.SetToolTip(mainOptionsRadio, Properties.Resources.tooltipOpt);
         }
 
         private void bugLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             bugLinkLabel.Links[bugLinkLabel.Links.IndexOf(e.Link)].Visited = true;
+
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+        }
+
+        private void JiraSummaryLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            JiraSummaryLink.Links[JiraSummaryLink.Links.IndexOf(e.Link)].Visited = true;
 
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
@@ -380,7 +400,7 @@ namespace MsgTranslator
 
                 if (tc.SelectedIndex == 2)
                 {
-                    mainErrLabel.Text = "Bug Num:";
+                    mainErrLabel.Text = "Issue Num:";
                 }
                 else
                 {
