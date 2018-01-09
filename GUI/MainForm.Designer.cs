@@ -73,6 +73,7 @@ namespace MsgTranslator
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.JiraSummaryLink = new System.Windows.Forms.LinkLabel();
+            this.CopyrightlinkLabel = new System.Windows.Forms.LinkLabel();
             this.mainTabControl.SuspendLayout();
             this.errorMsgTab.SuspendLayout();
             this.wndmsgTab.SuspendLayout();
@@ -427,6 +428,7 @@ namespace MsgTranslator
             // 
             // optionsTab
             // 
+            this.optionsTab.Controls.Add(this.CopyrightlinkLabel);
             this.optionsTab.Controls.Add(this.optionsRunStartChkBox);
             this.optionsTab.Controls.Add(this.optionsMinimizeChkBox);
             this.optionsTab.Location = new System.Drawing.Point(4, 22);
@@ -495,6 +497,18 @@ namespace MsgTranslator
             this.JiraSummaryLink.Size = new System.Drawing.Size(0, 13);
             this.JiraSummaryLink.TabIndex = 18;
             this.JiraSummaryLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.JiraSummaryLink_LinkClicked);
+            // 
+            // CopyrightlinkLabel
+            // 
+            this.CopyrightlinkLabel.AutoSize = true;
+            this.CopyrightlinkLabel.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.CopyrightlinkLabel.Location = new System.Drawing.Point(120, 172);
+            this.CopyrightlinkLabel.Name = "CopyrightlinkLabel";
+            this.CopyrightlinkLabel.Size = new System.Drawing.Size(169, 13);
+            this.CopyrightlinkLabel.TabIndex = 5;
+            this.CopyrightlinkLabel.TabStop = true;
+            this.CopyrightlinkLabel.Text = "Copyright 2008-2018  Ged Murphy";
+            this.CopyrightlinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CopyrightlinkLabel_LinkClicked);
             // 
             // MainForm
             // 
@@ -571,6 +585,7 @@ namespace MsgTranslator
         private System.Windows.Forms.TextBox JiraStatusTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel JiraSummaryLink;
+        private System.Windows.Forms.LinkLabel CopyrightlinkLabel;
     }
 }
 

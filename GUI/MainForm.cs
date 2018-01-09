@@ -340,6 +340,11 @@ namespace MsgTranslator
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
 
+        private void CopyrightlinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("mailto:gedmurphy@reactos.org?subject=Message Translator");
+        }
+
         private void MainForm_Resize(object sender, EventArgs e)
         {
             if (FormWindowState.Minimized == WindowState && HideOnMin)
