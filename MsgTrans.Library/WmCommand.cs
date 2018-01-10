@@ -78,7 +78,13 @@ namespace MsgTrans.Library
                 return text.Value;
             }
             else
-                return null;
+            {
+                if (wm > 1024)
+                {
+                    return "WM_USER + " + (wm - 1024).ToString();
+                }
+            }
+            return null;
         }
         
         private long GetWmNumber(string wmName)
