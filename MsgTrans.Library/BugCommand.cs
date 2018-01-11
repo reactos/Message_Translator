@@ -84,7 +84,14 @@ namespace MsgTrans.Library
                 reporter = json["fields"]["reporter"]["displayName"].ToString();
                 assignee = json["fields"]["assignee"]["displayName"].ToString();
                 status = json["fields"]["status"]["name"].ToString();
-                resolution = json["fields"]["resolution"].ToString();
+                if (json["fields"]["resolution"].HasValues)
+                {
+                    resolution = json["fields"]["resolution"]["name"].ToString();
+                }
+                else
+                {
+                    resolution = "Unresolved";
+                }
                 description = json["fields"]["description"].ToString();
 
                 MsgType = MessageType.BugUrl;

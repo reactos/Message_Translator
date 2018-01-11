@@ -287,8 +287,7 @@ namespace MsgTranslator
                             JiraReporterTextBox.Text = bugCmd.Reporter;
                             JiraAssigneeTextBox.Text = bugCmd.Assignee;
                             JiraStatusTextBox.Text = bugCmd.Status;
-                            JiraResolutionTextBox.Text = string.IsNullOrEmpty(bugCmd.Resolution) ?
-                                "Unresolved" : bugCmd.Resolution;
+                            JiraResolutionTextBox.Text = bugCmd.Resolution;
                             JiraDescriptionTextBox.Text = bugCmd.Description;
                         }
                     }
