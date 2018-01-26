@@ -36,6 +36,10 @@ namespace MsgTrans.Library
         BugUrl = 5,
         //
         // Summary:
+        //     NTSTATUS to Win32 code conversion
+        NtStatusToDos = 5,
+        //
+        // Summary:
         //     a custom Check code
         Custom = 6
     }
@@ -81,6 +85,7 @@ namespace MsgTrans.Library
                                           bugcheckXml));
             commands.Add(new WMCommand(this, wmXml));
             commands.Add(new BugCommand(this, bugUrl));
+            commands.Add(new NtStatusToWin32(this, ntstatusXml, winerrorXml));
         }
 
         public bool ParseCommandMessage(MessageContext context,

@@ -13,7 +13,7 @@ namespace MsgTranslator
     public partial class MainForm : Form
     {
         private static string regPath = @"Software\ReactOS\MsgTrans";
-        private string[] msgTypes = { "error", "wm", "bug" };
+        private string[] msgTypes = { "error", "wm", "ntstat2dos", "bug" };
         private List<Command> errMessages;
         private int curErrorPage;
 
@@ -248,9 +248,23 @@ namespace MsgTranslator
                 {
                     if (msgTran.Messages.Count > 1)
                     {
-                        // if we have more than one, they must be error messages
-                        errMessages = msgTran.Messages;
-                        UpdateErrorPage(1);
+                        // check for ntstat2dos
+                        if (msgType == msgTypes[2])
+                        {
+                            ntstatusDecimalTextBox.Text = msgTran.Messages[0].Number.ToString();
+                            ntstatusHexTextBox.Text = "0x" + msgTran.Messages[0].Hex;
+                            ntstatusCodeTxtBox.Text = msgTran.Messages[0].Code;
+
+                            dosDecimalTextBox.Text = msgTran.Messages[1].Number.ToString();
+                            dosHexTextBox.Text = "0x" + msgTran.Messages[1].Hex;
+                            dosCodeTxtBox.Text = msgTran.Messages[1].Code;
+                        }
+                        else
+                        {
+                            // if we have more than one, they must be error messages
+                            errMessages = msgTran.Messages;
+                            UpdateErrorPage(1);
+                        }
                     }
                     else
                     {
@@ -390,7 +404,7 @@ namespace MsgTranslator
         {
             TabControl tc = (TabControl)sender;
 
-            if (tc.SelectedIndex == 3)
+            if (tc.SelectedIndex == 4)
             {
                 mainErrLabel.Enabled = false;
                 mainErrTxtBox.Enabled = false;
@@ -402,14 +416,20 @@ namespace MsgTranslator
                 mainErrTxtBox.Enabled = true;
                 mainLookupButton.Enabled = true;
 
-                if (tc.SelectedIndex == 2)
+                switch (tc.SelectedIndex)
                 {
-                    mainErrLabel.Text = "Issue Num:";
+                    case 0:
+                    case 1:
+                        mainErrLabel.Text = "Message:";
+                        break;
+                    case 2:
+                        mainErrLabel.Text = "Status num:";
+                        break;
+                    case 3:
+                        mainErrLabel.Text = "Issue Num:";
+                        break;
                 }
-                else
-                {
-                    mainErrLabel.Text = "Message:";
-                }
+
             }
         }
 

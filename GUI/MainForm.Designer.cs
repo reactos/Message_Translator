@@ -53,7 +53,23 @@ namespace MsgTranslator
             this.wndmsgCodeTxtBox = new System.Windows.Forms.TextBox();
             this.wndmsgCodeLabel = new System.Windows.Forms.Label();
             this.wndmsgNumberLabel = new System.Windows.Forms.Label();
+            this.status2Dos = new System.Windows.Forms.TabPage();
+            this.dosCodeInfoLabel = new System.Windows.Forms.Label();
+            this.ntstatusCodeInfoLabel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dosHexTextBox = new System.Windows.Forms.TextBox();
+            this.dosDecimalTextBox = new System.Windows.Forms.TextBox();
+            this.dosCodeTxtBox = new System.Windows.Forms.TextBox();
+            this.dosDosErrorLabel = new System.Windows.Forms.Label();
+            this.dosNumberLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ntstatusHexTextBox = new System.Windows.Forms.TextBox();
+            this.ntstatusDecimalTextBox = new System.Windows.Forms.TextBox();
+            this.ntstatusCodeTxtBox = new System.Windows.Forms.TextBox();
+            this.ntstatusNtStatusLabel = new System.Windows.Forms.Label();
+            this.ntstatusNumberLabel = new System.Windows.Forms.Label();
             this.bugurlTab = new System.Windows.Forms.TabPage();
+            this.JiraSummaryLink = new System.Windows.Forms.LinkLabel();
             this.JiraDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.JiraAssigneeTextBox = new System.Windows.Forms.TextBox();
@@ -66,17 +82,17 @@ namespace MsgTranslator
             this.label3 = new System.Windows.Forms.Label();
             this.bugLinkLabel = new System.Windows.Forms.LinkLabel();
             this.optionsTab = new System.Windows.Forms.TabPage();
+            this.CopyrightlinkLabel = new System.Windows.Forms.LinkLabel();
             this.optionsRunStartChkBox = new System.Windows.Forms.CheckBox();
             this.optionsMinimizeChkBox = new System.Windows.Forms.CheckBox();
             this.mainErrLabel = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.JiraSummaryLink = new System.Windows.Forms.LinkLabel();
-            this.CopyrightlinkLabel = new System.Windows.Forms.LinkLabel();
             this.mainTabControl.SuspendLayout();
             this.errorMsgTab.SuspendLayout();
             this.wndmsgTab.SuspendLayout();
+            this.status2Dos.SuspendLayout();
             this.bugurlTab.SuspendLayout();
             this.optionsTab.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +119,7 @@ namespace MsgTranslator
             // 
             this.mainTabControl.Controls.Add(this.errorMsgTab);
             this.mainTabControl.Controls.Add(this.wndmsgTab);
+            this.mainTabControl.Controls.Add(this.status2Dos);
             this.mainTabControl.Controls.Add(this.bugurlTab);
             this.mainTabControl.Controls.Add(this.optionsTab);
             this.mainTabControl.Location = new System.Drawing.Point(12, 41);
@@ -306,6 +323,150 @@ namespace MsgTranslator
             this.wndmsgNumberLabel.TabIndex = 0;
             this.wndmsgNumberLabel.Text = "Number:";
             // 
+            // status2Dos
+            // 
+            this.status2Dos.Controls.Add(this.dosCodeInfoLabel);
+            this.status2Dos.Controls.Add(this.ntstatusCodeInfoLabel);
+            this.status2Dos.Controls.Add(this.label11);
+            this.status2Dos.Controls.Add(this.dosHexTextBox);
+            this.status2Dos.Controls.Add(this.dosDecimalTextBox);
+            this.status2Dos.Controls.Add(this.dosCodeTxtBox);
+            this.status2Dos.Controls.Add(this.dosDosErrorLabel);
+            this.status2Dos.Controls.Add(this.dosNumberLabel);
+            this.status2Dos.Controls.Add(this.label8);
+            this.status2Dos.Controls.Add(this.ntstatusHexTextBox);
+            this.status2Dos.Controls.Add(this.ntstatusDecimalTextBox);
+            this.status2Dos.Controls.Add(this.ntstatusCodeTxtBox);
+            this.status2Dos.Controls.Add(this.ntstatusNtStatusLabel);
+            this.status2Dos.Controls.Add(this.ntstatusNumberLabel);
+            this.status2Dos.Location = new System.Drawing.Point(4, 22);
+            this.status2Dos.Name = "status2Dos";
+            this.status2Dos.Padding = new System.Windows.Forms.Padding(3);
+            this.status2Dos.Size = new System.Drawing.Size(292, 185);
+            this.status2Dos.TabIndex = 5;
+            this.status2Dos.Text = "Status to Win32";
+            this.status2Dos.UseVisualStyleBackColor = true;
+            // 
+            // dosCodeInfoLabel
+            // 
+            this.dosCodeInfoLabel.AutoSize = true;
+            this.dosCodeInfoLabel.Location = new System.Drawing.Point(60, 102);
+            this.dosCodeInfoLabel.Name = "dosCodeInfoLabel";
+            this.dosCodeInfoLabel.Size = new System.Drawing.Size(178, 13);
+            this.dosCodeInfoLabel.TabIndex = 27;
+            this.dosCodeInfoLabel.Text = "Win32 / DOS error code Information";
+            // 
+            // ntstatusCodeInfoLabel
+            // 
+            this.ntstatusCodeInfoLabel.AutoSize = true;
+            this.ntstatusCodeInfoLabel.Location = new System.Drawing.Point(60, 14);
+            this.ntstatusCodeInfoLabel.Name = "ntstatusCodeInfoLabel";
+            this.ntstatusCodeInfoLabel.Size = new System.Drawing.Size(147, 13);
+            this.ntstatusCodeInfoLabel.TabIndex = 26;
+            this.ntstatusCodeInfoLabel.Text = "NTSTATUS code Information";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(162, 126);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(12, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "/";
+            // 
+            // dosHexTextBox
+            // 
+            this.dosHexTextBox.Location = new System.Drawing.Point(176, 123);
+            this.dosHexTextBox.Name = "dosHexTextBox";
+            this.dosHexTextBox.ReadOnly = true;
+            this.dosHexTextBox.Size = new System.Drawing.Size(104, 20);
+            this.dosHexTextBox.TabIndex = 23;
+            // 
+            // dosDecimalTextBox
+            // 
+            this.dosDecimalTextBox.Location = new System.Drawing.Point(63, 123);
+            this.dosDecimalTextBox.Name = "dosDecimalTextBox";
+            this.dosDecimalTextBox.ReadOnly = true;
+            this.dosDecimalTextBox.Size = new System.Drawing.Size(98, 20);
+            this.dosDecimalTextBox.TabIndex = 22;
+            // 
+            // dosCodeTxtBox
+            // 
+            this.dosCodeTxtBox.Location = new System.Drawing.Point(63, 149);
+            this.dosCodeTxtBox.Name = "dosCodeTxtBox";
+            this.dosCodeTxtBox.ReadOnly = true;
+            this.dosCodeTxtBox.Size = new System.Drawing.Size(217, 20);
+            this.dosCodeTxtBox.TabIndex = 24;
+            // 
+            // dosDosErrorLabel
+            // 
+            this.dosDosErrorLabel.AutoSize = true;
+            this.dosDosErrorLabel.Location = new System.Drawing.Point(21, 152);
+            this.dosDosErrorLabel.Name = "dosDosErrorLabel";
+            this.dosDosErrorLabel.Size = new System.Drawing.Size(41, 13);
+            this.dosDosErrorLabel.TabIndex = 20;
+            this.dosDosErrorLabel.Text = "Win32:";
+            // 
+            // dosNumberLabel
+            // 
+            this.dosNumberLabel.AutoSize = true;
+            this.dosNumberLabel.Location = new System.Drawing.Point(15, 126);
+            this.dosNumberLabel.Name = "dosNumberLabel";
+            this.dosNumberLabel.Size = new System.Drawing.Size(47, 13);
+            this.dosNumberLabel.TabIndex = 21;
+            this.dosNumberLabel.Text = "Number:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(162, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(12, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "/";
+            // 
+            // ntstatusHexTextBox
+            // 
+            this.ntstatusHexTextBox.Location = new System.Drawing.Point(176, 35);
+            this.ntstatusHexTextBox.Name = "ntstatusHexTextBox";
+            this.ntstatusHexTextBox.ReadOnly = true;
+            this.ntstatusHexTextBox.Size = new System.Drawing.Size(104, 20);
+            this.ntstatusHexTextBox.TabIndex = 17;
+            // 
+            // ntstatusDecimalTextBox
+            // 
+            this.ntstatusDecimalTextBox.Location = new System.Drawing.Point(63, 35);
+            this.ntstatusDecimalTextBox.Name = "ntstatusDecimalTextBox";
+            this.ntstatusDecimalTextBox.ReadOnly = true;
+            this.ntstatusDecimalTextBox.Size = new System.Drawing.Size(98, 20);
+            this.ntstatusDecimalTextBox.TabIndex = 16;
+            // 
+            // ntstatusCodeTxtBox
+            // 
+            this.ntstatusCodeTxtBox.Location = new System.Drawing.Point(63, 61);
+            this.ntstatusCodeTxtBox.Name = "ntstatusCodeTxtBox";
+            this.ntstatusCodeTxtBox.ReadOnly = true;
+            this.ntstatusCodeTxtBox.Size = new System.Drawing.Size(217, 20);
+            this.ntstatusCodeTxtBox.TabIndex = 18;
+            // 
+            // ntstatusNtStatusLabel
+            // 
+            this.ntstatusNtStatusLabel.AutoSize = true;
+            this.ntstatusNtStatusLabel.Location = new System.Drawing.Point(10, 64);
+            this.ntstatusNtStatusLabel.Name = "ntstatusNtStatusLabel";
+            this.ntstatusNtStatusLabel.Size = new System.Drawing.Size(51, 13);
+            this.ntstatusNtStatusLabel.TabIndex = 14;
+            this.ntstatusNtStatusLabel.Text = "NtStatus:";
+            // 
+            // ntstatusNumberLabel
+            // 
+            this.ntstatusNumberLabel.AutoSize = true;
+            this.ntstatusNumberLabel.Location = new System.Drawing.Point(14, 38);
+            this.ntstatusNumberLabel.Name = "ntstatusNumberLabel";
+            this.ntstatusNumberLabel.Size = new System.Drawing.Size(47, 13);
+            this.ntstatusNumberLabel.TabIndex = 15;
+            this.ntstatusNumberLabel.Text = "Number:";
+            // 
             // bugurlTab
             // 
             this.bugurlTab.Controls.Add(this.JiraSummaryLink);
@@ -326,6 +487,15 @@ namespace MsgTranslator
             this.bugurlTab.TabIndex = 3;
             this.bugurlTab.Text = "JIRA";
             this.bugurlTab.UseVisualStyleBackColor = true;
+            // 
+            // JiraSummaryLink
+            // 
+            this.JiraSummaryLink.AutoSize = true;
+            this.JiraSummaryLink.Location = new System.Drawing.Point(55, 14);
+            this.JiraSummaryLink.Name = "JiraSummaryLink";
+            this.JiraSummaryLink.Size = new System.Drawing.Size(0, 13);
+            this.JiraSummaryLink.TabIndex = 18;
+            this.JiraSummaryLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.JiraSummaryLink_LinkClicked);
             // 
             // JiraDescriptionTextBox
             // 
@@ -438,6 +608,18 @@ namespace MsgTranslator
             this.optionsTab.Text = "Options";
             this.optionsTab.UseVisualStyleBackColor = true;
             // 
+            // CopyrightlinkLabel
+            // 
+            this.CopyrightlinkLabel.AutoSize = true;
+            this.CopyrightlinkLabel.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.CopyrightlinkLabel.Location = new System.Drawing.Point(120, 172);
+            this.CopyrightlinkLabel.Name = "CopyrightlinkLabel";
+            this.CopyrightlinkLabel.Size = new System.Drawing.Size(169, 13);
+            this.CopyrightlinkLabel.TabIndex = 5;
+            this.CopyrightlinkLabel.TabStop = true;
+            this.CopyrightlinkLabel.Text = "Copyright 2008-2018  Ged Murphy";
+            this.CopyrightlinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CopyrightlinkLabel_LinkClicked);
+            // 
             // optionsRunStartChkBox
             // 
             this.optionsRunStartChkBox.AutoSize = true;
@@ -489,27 +671,6 @@ namespace MsgTranslator
             this.toolTip.InitialDelay = 500;
             this.toolTip.ReshowDelay = 100;
             // 
-            // JiraSummaryLink
-            // 
-            this.JiraSummaryLink.AutoSize = true;
-            this.JiraSummaryLink.Location = new System.Drawing.Point(55, 14);
-            this.JiraSummaryLink.Name = "JiraSummaryLink";
-            this.JiraSummaryLink.Size = new System.Drawing.Size(0, 13);
-            this.JiraSummaryLink.TabIndex = 18;
-            this.JiraSummaryLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.JiraSummaryLink_LinkClicked);
-            // 
-            // CopyrightlinkLabel
-            // 
-            this.CopyrightlinkLabel.AutoSize = true;
-            this.CopyrightlinkLabel.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.CopyrightlinkLabel.Location = new System.Drawing.Point(120, 172);
-            this.CopyrightlinkLabel.Name = "CopyrightlinkLabel";
-            this.CopyrightlinkLabel.Size = new System.Drawing.Size(169, 13);
-            this.CopyrightlinkLabel.TabIndex = 5;
-            this.CopyrightlinkLabel.TabStop = true;
-            this.CopyrightlinkLabel.Text = "Copyright 2008-2018  Ged Murphy";
-            this.CopyrightlinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CopyrightlinkLabel_LinkClicked);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -531,6 +692,8 @@ namespace MsgTranslator
             this.errorMsgTab.PerformLayout();
             this.wndmsgTab.ResumeLayout(false);
             this.wndmsgTab.PerformLayout();
+            this.status2Dos.ResumeLayout(false);
+            this.status2Dos.PerformLayout();
             this.bugurlTab.ResumeLayout(false);
             this.bugurlTab.PerformLayout();
             this.optionsTab.ResumeLayout(false);
@@ -586,6 +749,21 @@ namespace MsgTranslator
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel JiraSummaryLink;
         private System.Windows.Forms.LinkLabel CopyrightlinkLabel;
+        private System.Windows.Forms.TabPage status2Dos;
+        private System.Windows.Forms.Label dosCodeInfoLabel;
+        private System.Windows.Forms.Label ntstatusCodeInfoLabel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox dosHexTextBox;
+        private System.Windows.Forms.TextBox dosDecimalTextBox;
+        private System.Windows.Forms.TextBox dosCodeTxtBox;
+        private System.Windows.Forms.Label dosDosErrorLabel;
+        private System.Windows.Forms.Label dosNumberLabel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox ntstatusHexTextBox;
+        private System.Windows.Forms.TextBox ntstatusDecimalTextBox;
+        private System.Windows.Forms.TextBox ntstatusCodeTxtBox;
+        private System.Windows.Forms.Label ntstatusNtStatusLabel;
+        private System.Windows.Forms.Label ntstatusNumberLabel;
     }
 }
 

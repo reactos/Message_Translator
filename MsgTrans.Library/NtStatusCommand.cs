@@ -26,31 +26,35 @@ namespace MsgTrans.Library
                 return false;
             }
 
+            long dec;
+            string hex;
             NumberParser np = new NumberParser();
-            if (!np.Parse(ntstatusText))
+            if (np.Parse(ntstatusText))
             {
-                return false;
+                dec = np.Decimal;
+                hex = np.Hex;
             }
-            
-            string description = GetNtstatusDescription(np.Decimal);
+            else
+            {
+                dec = GetNtStatusNumber(ntstatusText);
+                if (dec == -1)
+                {
+                    return false;
+                }
+                hex = dec.ToString("X");
+            }
+
+            string description = GetNtstatusDescription(dec);
             if (description != null)
             {
                 AddMessage(MessageType.NTSTATUS,
-                           np.Decimal,
-                           np.Hex,
+                           dec,
+                           hex,
                            description,
                            null);
 
                 return true;
-            }/*
-            else
-            {
-                MsgTrans.MsgOutput.MsgOut(context,
-                                          String.Format("I don't know about NTSTATUS {0}.",
-                                                        ntstatusText));
-
-                return false;
-            }*/
+            }
 
             return false;
         }
@@ -74,6 +78,25 @@ namespace MsgTrans.Library
             }
             else
                 return null;
+        }
+
+        private long GetNtStatusNumber(string ntstatus)
+        {
+            XmlElement root = base.m_XmlDocument.DocumentElement;
+            XmlNode node = root.SelectSingleNode(String.Format("Ntstatus[@text='{0}']",
+                                                               ntstatus));
+            if (node != null)
+            {
+                XmlAttribute value = node.Attributes["value"];
+                if (value == null)
+                    throw new Exception("Node has no value attribute.");
+
+                string hex = value.Value;
+
+                return Convert.ToInt64(hex, 16);
+            }
+            else
+                return -1;
         }
     }
 }
