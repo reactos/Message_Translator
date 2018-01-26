@@ -52,10 +52,10 @@ namespace MsgTrans.Library
         }
 
         protected void AddMessage(MessageType msgType,
-                                long dec,
-                                string hex,
-                                string code,
-                                string msg)
+                                  long dec,
+                                  string hex,
+                                  string code,
+                                  string msg)
         {
             MsgType = msgType;
             Number = dec;

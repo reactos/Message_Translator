@@ -27,32 +27,37 @@ namespace MsgTrans.Library
                 return false;
             }
 
+            long dec;
+            string hex;
             NumberParser np = new NumberParser();
-            if (!np.Parse(winerrorText))
+            if (np.Parse(winerrorText))
             {
-                return false;
+                dec = np.Decimal;
+                hex = np.Hex;
             }
-            
-            string description = GetWinerrorDescription(np.Decimal);
+            else
+            {
+                dec = GetNtStatusNumber(winerrorText);
+                if (dec == -1)
+                {
+                    return false;
+                }
+                hex = dec.ToString("X");
+            }
+
+            string description = GetWinerrorDescription(dec);
             if (description != null)
             {
-                string message = new System.ComponentModel.Win32Exception(Convert.ToInt32(np.Decimal)).Message;
+                string message = new System.ComponentModel.Win32Exception(Convert.ToInt32(dec)).Message;
 
                 AddMessage(MessageType.WinError,
-                           np.Decimal,
-                           np.Hex,
+                           dec,
+                           hex,
                            description,
                            message);
 
                 return true;
-            }/*
-            else
-            {
-                MsgTrans.MsgOutput.MsgOut(context,
-                                          String.Format("I don't know about System Error Code {0}.",
-                                                        winerrorText));
-                return false;
-            }*/
+            }
 
             return false;
         }
@@ -76,6 +81,23 @@ namespace MsgTrans.Library
             }
             else
                 return null;
+        }
+
+        private long GetNtStatusNumber(string winerrorName)
+        {
+            XmlElement root = base.m_XmlDocument.DocumentElement;
+            XmlNode node = root.SelectSingleNode(String.Format("Winerror[@text='{0}']",
+                                                               winerrorName));
+            if (node != null)
+            {
+                XmlAttribute value = node.Attributes["value"];
+                if (value == null)
+                    throw new Exception("Node has no value attribute.");
+
+                return Convert.ToInt64(value.Value);
+            }
+            else
+                return -1;
         }
     }
 }
